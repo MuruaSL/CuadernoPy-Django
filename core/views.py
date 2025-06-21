@@ -5,14 +5,10 @@ from datetime import datetime
 def index(request):
     return render(request,"core/index.html")
     
+def contenido(request):
+    return render(request,"core/contenido.html")
+
+def sobremi(request):
+    return render(request, "core/sobremi.html")
+
 # end def
-
-def saludar(request):
-    return HttpResponse("Hola desde Django")
-
-def saludar_con_etiqueta(request):
-    return HttpResponse('<h1 style= "color:red">Hola mundo</h1>')
-    
-def saludar_con_parametros(request,nombre:str,apellido:str):
-    return HttpResponse('<h1 style= "color:red">Hola </h1>  {{ nombre }} {{ apellido }}')
-    

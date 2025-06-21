@@ -1,15 +1,19 @@
 /* INDEX HTML */
 
-body {
-  background-color: #f8f9fa;
-}
-
 .cuerpo {
   padding: 20px;
-  background-color: #d6e9f8;
+  background-color: #fff4b6;
 }
 
 .banner{
   width: 100vw;
   max-height: 5vw;
+}
+
+/* SOBRE MI HTML */
+
+.foto_sobre_mi{
+  height: 20vw;
+  border-radius: 5%;
+  
 }
