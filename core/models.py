@@ -9,3 +9,12 @@ class MensajeContacto(models.Model):
 
     def __str__(self):
         return f"{self.nombre} - {self.email}"
+
+class Contenido(models.Model):
+    titulo = models.CharField(max_length=200)
+    descripcion = models.TextField()
+    imagen = models.ImageField(upload_to="imagenes_contenido/", null=True, blank=True)
+    texto_completo = models.TextField()
+
+    def __str__(self):
+        return self.titulo

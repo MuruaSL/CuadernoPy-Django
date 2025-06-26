@@ -20,8 +20,11 @@ from core  import views
 
 urlpatterns = [
     path("",views.index, name="Index"),
-    path("contenido/", views.contenido, name="Contenido"),
     path("sobremi/", views.sobremi, name="SobreMi"),
     path('admin/', admin.site.urls),
-    
+    path("contenido/", views.ver_contenido, name="Contenido"),
+    path("contenido/<int:contenido_id>/", views.detalle_contenido, name="DetalleContenido"),
+    path("crear_contenido/", views.crear_contenido, name="CrearContenido"),
+
+
 ]

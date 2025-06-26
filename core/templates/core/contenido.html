@@ -1,26 +1,27 @@
 {% extends './base.html' %}
 
 {% block titulo %}
-    Inicio
+    Contenido
 {% endblock titulo %}
 
 {% block cuerpo %}
-    <img class="banner" src="../../static/img/django-banner.png" alt="Banner Python + django">
-    <div class="cuerpo">
-        <p>hola contenido!</p>
-    </div>
-        <!-- Cards TIENE QUE SER UN FOR DE LA BD-->
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+    <div class="container mt-4">
+        <h2>Contenidos del Cuaderno</h2>
+        <div class="row">
+            {% for item in contenidos %}
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        {% if item.imagen %}
+                            <img src="{{ item.imagen.url }}" class="card-img-top" alt="...">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.titulo }}</h5>
+                            <p class="card-text">{{ item.descripcion|truncatewords:20 }}</p>
+                            <a href="{% url 'DetalleContenido' item.id %}" class="btn btn-primary">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-
-
-    <div>
-        
     </div>
 {% endblock cuerpo %}
