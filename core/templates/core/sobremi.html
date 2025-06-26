@@ -12,6 +12,27 @@
         <p>La idea es que este cuaderno crezca con ejemplos útiles, conceptos importantes y buenas prácticas de desarrollo web.</p>
         <img class="foto_sobre_mi" src="../../static/img/pipa.jpeg" alt="foto perfil sobre mi">
         <hr>
+        <h2>Formulario de contacto</h2>
+
+        {% if exito %}
+            <div class="alert alert-success">¡Gracias por tu mensaje! Te responderé pronto.</div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <label for="id_nombre">Nombre:</label><br>
+            {{ form.nombre }}<br><br>
+
+            <label for="id_email">Correo electrónico:</label><br>
+            {{ form.email }}<br><br>
+
+            <label for="id_mensaje">Mensaje:</label><br>
+            {{ form.mensaje }}<br><br>
+
+            <button type="submit">Enviar</button>
+        </form>
+
         <p>Creado por: Sergio Murua</p>
     </div>
 {% endblock cuerpo %}

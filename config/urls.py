@@ -23,5 +23,5 @@ urlpatterns = [
     path("",views.index, name="Index"),
     path("contenido/", views.contenido, name="Contenido"),
     path("sobremi/", views.sobremi, name="SobreMi"),
-
+    
 ]
