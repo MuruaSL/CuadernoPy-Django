@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}{{ curso.titulo }}{% endblock %}
+
+{% block cuerpo %}
+<div class="container mt-4">
+    <h2>{{ curso.titulo }}</h2>
+    <p>{{ curso.descripcion }}</p>
+
+    <h3>Clases</h3>
+    <div class="row">
+        {% for clase in clases %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                {% if clase.imagen %}
+                <img src="{{ clase.imagen.url }}" class="card-img-top" alt="{{ clase.titulo }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ clase.titulo }}</h5>
+                    <p class="card-text">{{ clase.descripcion|truncatewords:20 }}</p>
+                    <a href="{% url 'ClaseDetalle' clase.id %}" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+            <p>No hay clases para este curso.</p>
+        {% endfor %}
+    </div>
+    <a href="{% url 'Cursos' %}">← Volver a cursos</a>
+</div>
+{% endblock %}

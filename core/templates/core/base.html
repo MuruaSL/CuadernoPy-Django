@@ -1,5 +1,4 @@
-{% load static %}
-
+ {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,56 +11,69 @@
     <title>
         {% block titulo %}Texto Titulo{% endblock titulo %}
     </title>
-    
-{% block navbar %}
+<body style="padding-top: 70px;">
+    {% block navbar %}
     <nav class="style-navbar navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">Cuaderno PY + DJANGO</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand" href="{% url 'Index' %}">Cuaderno PY + DJANGO</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarText"
+              aria-controls="navbarText"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'Index' %}">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/contenido/' %}active{% endif %}" href="{% url 'Contenido' %}">Contenido</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/sobremi/' %}active{% endif %}" href="{% url 'SobreMi' %}">Sobre mi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/admin/' %}active{% endif %}" href="/admin/">Administrativo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/crear_contenido/' %}active{% endif %}" href="{% url 'CrearContenido' %}">Nuevo Contenido</a>
-                    </li>
-                </ul>
-                <span class="navbar-text">
-                    Bienvenido
-                </span>
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                  <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'Index' %}">Inicio</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link {% if request.path == '/cursos/' %}active{% endif %}" href="{% url 'Cursos' %}">Cursos</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link {% if request.path == '/sobremi/' %}active{% endif %}" href="{% url 'SobreMi' %}">Sobre mí</a>
+                </li>
+
+                <!-- Dropdown Administrativo -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle {% if activo_administrativo %}active{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Administrativo
+                    </a>
+
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'CrearCurso' %}">Crear Curso</a></li>
+                    <li><a class="dropdown-item" href="{% url 'CrearClase' %}">Crear Clase</a></li>
+                    <li><a class="dropdown-item" href="{% url 'CrearCategoria' %}">Crear Categoría</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/admin/">Admin Django</a></li>
+                  </ul>
+                </li>
+
+              </ul>
+              <span class="navbar-text">Bienvenido</span>
             </div>
         </div>
     </nav>
-{% endblock navbar %}     
-{% block banner %}
-    <img class="banner" src="/static/core/img/django-banner.png" alt="Banner Python + django">
-{% endblock banner %}
-</head>
-<body style="padding-top: 70px;">
-    {% block cuerpo %}
-    {% endblock cuerpo %}
+    {% endblock navbar %}
+    
+    {% block banner %}
+    <img class="banner" src="{% static 'core/img/django-banner.png' %}" alt="Banner Python + django" />
+    {% endblock banner %}
+
+    {% block cuerpo %}{% endblock cuerpo %}
+    
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+  crossorigin="anonymous"
+></script>
 </body>
-
-
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </html>
-
-
-

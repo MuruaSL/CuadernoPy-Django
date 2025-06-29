@@ -1,52 +1,63 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from datetime import datetime
-from .forms import ContactoFormulario, ContenidoForm
-from .models import MensajeContacto
-from .models import Contenido 
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import MensajeContacto, Curso, Clase
+from .forms import ContactoFormulario, ClaseForm, CursoForm, CategoriaForm  # usado en sobremi
 
-from django.shortcuts import get_object_or_404
-# Create your views here.
 def index(request):
-    return render(request,"core/index.html")
-    
+    return render(request, "core/index.html")
+
+def cursos(request):
+    cursos = Curso.objects.all()
+    return render(request, "core/cursos.html", {"cursos": cursos})
+
+def curso_detalle(request, curso_id):
+    curso = get_object_or_404(Curso, id=curso_id)
+    clases = curso.clases.all()  # related_name 'clases'
+    return render(request, "core/curso_detalle.html", {"curso": curso, "clases": clases})
+
+def clase_detalle(request, clase_id):
+    clase = get_object_or_404(Clase, id=clase_id)
+    return render(request, "core/clase_detalle.html", {"clase": clase})
+
 def sobremi(request):
     if request.method == "POST":
         form = ContactoFormulario(request.POST)
         if form.is_valid():
-            # Extraer los datos
-            nombre = form.cleaned_data['nombre']
-            email = form.cleaned_data['email']
-            mensaje = form.cleaned_data['mensaje']
-
-            # Guardar en la base de datos
-            MensajeContacto.objects.create(
-                nombre=nombre,
-                email=email,
-                mensaje=mensaje
-            )
-
+            form.save()
             return render(request, "core/sobremi.html", {"form": ContactoFormulario(), "exito": True})
     else:
         form = ContactoFormulario()
-
     return render(request, "core/sobremi.html", {"form": form})
 
 
-def ver_contenido(request):
-    contenidos = Contenido.objects.all()
-    return render(request, "core/contenido.html", {"contenidos": contenidos})
-
-def detalle_contenido(request, contenido_id):
-    contenido = get_object_or_404(Contenido, id=contenido_id)
-    return render(request, "core/contenido_detalle.html", {"contenido": contenido})
-
-def crear_contenido(request):
+def crear_clase(request):
     if request.method == "POST":
-        form = ContenidoForm(request.POST, request.FILES)
+        form = ClaseForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect("Contenido")  # ← este debe ser el name del path en urls.py
+            return redirect("Cursos")
     else:
-        form = ContenidoForm()
-    return render(request, "core/crear_contenido.html", {"form": form})
+        form = ClaseForm()
+    return render(request, "core/crear_clase.html", {"form": form})
+
+def crear_curso(request):
+    if request.method == "POST":
+        form = CursoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('Cursos')
+    else:
+        form = CursoForm()
+    return render(request, 'core/crear_curso.html', {
+        'form': form,
+        'activo_administrativo': True 
+    })
+
+def crear_categoria(request):
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('Cursos')
+    else:
+        form = CategoriaForm()
+    return render(request, 'core/crear_categoria.html', {'form': form, 'activo_administrativo': True})

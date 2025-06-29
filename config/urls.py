@@ -17,14 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from core  import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path("",views.index, name="Index"),
+    path("", views.index, name="Index"),
     path("sobremi/", views.sobremi, name="SobreMi"),
+    path("cursos/", views.cursos, name="Cursos"),
+    path("curso/<int:curso_id>/", views.curso_detalle, name="CursoDetalle"),
+    path("clase/<int:clase_id>/", views.clase_detalle, name="ClaseDetalle"),
     path('admin/', admin.site.urls),
-    path("contenido/", views.ver_contenido, name="Contenido"),
-    path("contenido/<int:contenido_id>/", views.detalle_contenido, name="DetalleContenido"),
-    path("crear_contenido/", views.crear_contenido, name="CrearContenido"),
-
-
-]
+    path("crear_clase/", views.crear_clase, name="CrearClase"),
+    path('crear_curso/', views.crear_curso, name='CrearCurso'),
+    path('crear_categoria/', views.crear_categoria, name='CrearCategoria'),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

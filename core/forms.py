@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contenido
+from .models import Clase, Curso, Categoria
 
 class ContactoFormulario(forms.Form):
     nombre = forms.CharField(
@@ -20,8 +20,33 @@ class ContactoFormulario(forms.Form):
         })
     )
 
-class ContenidoForm(forms.ModelForm):
+class ClaseForm(forms.ModelForm):
     class Meta:
-        model = Contenido
-        fields = ['titulo', 'descripcion', 'imagen', 'texto_completo']
+        model = Clase
+        fields = ['curso', 'titulo', 'descripcion', 'imagen', 'texto_completo']
+        widgets = {
+            'curso': forms.Select(attrs={'class': 'form-select'}),
+            'titulo': forms.TextInput(attrs={'class': 'form-control'}),
+            'descripcion': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            'imagen': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'texto_completo': forms.Textarea(attrs={'class': 'form-control', 'rows': 6}),
+        }
 
+class CursoForm(forms.ModelForm):
+    class Meta:
+        model = Curso
+        fields = ['categoria', 'titulo', 'descripcion', 'imagen']
+        widgets = {
+            'categoria': forms.Select(attrs={'class': 'form-select'}),
+            'titulo': forms.TextInput(attrs={'class': 'form-control'}),
+            'descripcion': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            'imagen': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+        }
+        
+class CategoriaForm(forms.ModelForm):
+    class Meta:
+        model = Categoria
+        fields = ['nombre']
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+        }

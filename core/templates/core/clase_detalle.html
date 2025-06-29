@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}{{ clase.titulo }}{% endblock %}
+
+{% block cuerpo %}
+<div class="container mt-4">
+    <h2>{{ clase.titulo }}</h2>
+    <p>{{ clase.texto_completo|linebreaks }}</p>
+    <a href="{% url 'CursoDetalle' clase.curso.id %}">← Volver al curso</a>
+</div>
+{% endblock %}
