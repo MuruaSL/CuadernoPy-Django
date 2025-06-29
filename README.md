@@ -11,8 +11,7 @@ INSTALACIÓN Y EJECUCIÓN DEL PROYECTO
     Crear y activar entorno virtual:
 
 Windows:
-python -m venv .venv
-.venv\Scripts\activate
+python .venv\Scripts\activate
 
 Linux/Mac:
 python3 -m venv .venv
