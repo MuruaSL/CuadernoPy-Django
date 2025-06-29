@@ -253,3 +253,29 @@ button[type="submit"]:hover {
   background-color: #198754; /* verde */
   color: #ffffff;
 }
+
+/* ================= Recuadro de busqueda =================== */
+.boton_busqueda{
+  max-height: 5vh;
+}
+.input_busqueda{
+  max-height: 5vh;
+}
+
+.container_busqueda{
+  background-color: #fefefe;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  margin: 20px auto 40px auto;
+}
+
+button[type="submit"] {
+  padding: 0px 15px;
+}
+
+
+
+
+
+
+

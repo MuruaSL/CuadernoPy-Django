@@ -6,13 +6,28 @@ def index(request):
     return render(request, "core/index.html")
 
 def cursos(request):
-    cursos = Curso.objects.all()
-    return render(request, "core/cursos.html", {"cursos": cursos})
+    query = request.GET.get('q', '')
+    if query:
+        cursos = Curso.objects.filter(titulo__icontains=query)
+    else:
+        cursos = Curso.objects.all()
+    return render(request, 'core/cursos.html', {'cursos': cursos, 'query': query})
+
 
 def curso_detalle(request, curso_id):
     curso = get_object_or_404(Curso, id=curso_id)
-    clases = curso.clases.all()  # related_name 'clases'
-    return render(request, "core/curso_detalle.html", {"curso": curso, "clases": clases})
+    query = request.GET.get('q', '')
+    
+    if query:
+        clases = curso.clases.filter(titulo__icontains=query)
+    else:
+        clases = curso.clases.all()
+    
+    return render(request, "core/curso_detalle.html", {
+        "curso": curso,
+        "clases": clases,
+        "query": query
+    })
 
 def clase_detalle(request, clase_id):
     clase = get_object_or_404(Clase, id=clase_id)
