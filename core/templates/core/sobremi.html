@@ -1,38 +1,58 @@
 {% extends './base.html' %}
+{% load static %}
+
+{% block banner %}
+    <div class="banner-sobremi">
+        <h1>Sobre mí</h1>
+        <p>Full Stack web dev — Python · Django · JavaScript · Community Manager</p>
+    </div>
+{% endblock banner %}
 
 {% block titulo %}
     Sobre mí
 {% endblock titulo %}
 
 {% block cuerpo %}
-    <div class="container mt-5">
-        <h1>Sobre mí</h1>
-        <hr>
-        <p>Este es un proyecto personal para practicar y documentar conocimientos en Python y Django.</p>
-        <p>La idea es que este cuaderno crezca con ejemplos útiles, conceptos importantes y buenas prácticas de desarrollo web.</p>
-        <img class="foto_sobre_mi" src="../../static/img/pipa.jpeg" alt="foto perfil sobre mi">
-        <hr>
-        <h2>Formulario de contacto</h2>
+    <div id="toast-container" style="position: fixed; top: 1rem; right: 1rem; z-index: 1050;"></div>
+    <div class="background" 
+        data-mensaje-exito="{% if exito %}¡Gracias por tu mensaje! Te responderé pronto.{% endif %}">
+        <div class="container mt-3">
+            <div class="sobre-mi-flex">
+                <div class="foto-container">
+                    <img class="foto_sobre_mi" src="{% static 'core/img/pipa.jpeg' %}" alt="foto perfil sobre mi">
+                </div>
+                <div class="texto-sobre-mi">
+                    
+                    <h1>Hola soy Sergio Murua. </h1>
+                    <p>Me formé como desarrollador full stack en Coderhouse, donde cursé la carrera de Desarrollo Web con JavaScript y Node.js, tambien soy community manager y actualmente estudio Ingeniería en Sistemas de Información en la UTN.</p>
 
-        {% if exito %}
-            <div class="alert alert-success">¡Gracias por tu mensaje! Te responderé pronto.</div>
-        {% endif %}
+                    <p>Este cuaderno es un proyecto personal en el que combino mi interés por Python y Django con la idea de documentar ejemplos, prácticas y aprendizajes del camino.</p>
 
-        <form method="post">
-            {% csrf_token %}
-            
-            <label for="id_nombre">Nombre:</label><br>
-            {{ form.nombre }}<br><br>
+                    <p>Me gusta trabajar en soluciones limpias y bien pensadas, priorizando la funcionalidad y la claridad.</p>
+                    <p>Pd: El loro se llama Sussy pero le puedes llamar Pipa 🐦   </p>
+                    
+                </div>
 
-            <label for="id_email">Correo electrónico:</label><br>
-            {{ form.email }}<br><br>
+            </div>
+            <hr>
+            <h1 class="titulo_formulario_contacto">Formulario de contacto</h1>
+            <form method="post" class="formulario-contacto" novalidate>
+                {% csrf_token %}
+                
+                <label for="id_nombre">Nombre:</label>
+                {{ form.nombre }}
+                
+                <label for="id_email">Correo electrónico:</label>
+                {{ form.email }}
+                
+                <label for="id_mensaje">Mensaje:</label>
+                {{ form.mensaje }}
 
-            <label for="id_mensaje">Mensaje:</label><br>
-            {{ form.mensaje }}<br><br>
-
-            <button type="submit">Enviar</button>
-        </form>
-
-        <p>Creado por: Sergio Murua</p>
+                <button type="submit">Enviar</button>
+            </form>
+            <hr>
+            <p>Creado por: Sergio Murua</p>
+        </div>
     </div>
+    <script src="{% static 'core/js/sobremi.js' %}"></script>
 {% endblock cuerpo %}
