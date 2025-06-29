@@ -1,36 +1,43 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}Cursos{% endblock %}
-
+{% block banner %}
+    <div class="banner-sobremi">
+        <h1>Cursos</h1>
+        <p>Explora los cursos disponibles con sus clases y recursos</p>
+    </div>
+{% endblock banner %}
 {% block cuerpo %}
-<div class="container mt-4">
-    <h2>Cursos disponibles</h2>
-    <!-- Formulario de búsqueda -->
-    <form method="get" action="" class="mb-4 container_busqueda">
-        <div class="input-group">
-            <input type="text" name="q" class="form-control input_busqueda" placeholder="Buscar por nombre..." value="{{ query }}">
-            <button class="btn btn-outline-secondary boton_busqueda" type="submit">Buscar</button>
-        </div>
-    </form>
+<div class="background">
+    <div class="container mt-3">
+        <h2>Cursos disponibles</h2>
+        <!-- Formulario de búsqueda -->
+        <form method="get" action="" class="mb-4 container_busqueda">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control input_busqueda" placeholder="Buscar por nombre..." value="{{ query }}">
+                <button class="btn btn-outline-secondary boton_busqueda" type="submit">Buscar</button>
+            </div>
+        </form>
 
-    <!-- Listado de cursos -->
-    <div class="row">
-        {% for curso in cursos %}
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                {% if curso.imagen %}
-                <img src="{{ curso.imagen.url }}" class="card-img-top" alt="{{ curso.titulo }}">
-                {% endif %}
-                <div class="card-body">
-                    <h5 class="card-title">{{ curso.titulo }}</h5>
-                    <p class="card-text">{{ curso.descripcion|truncatewords:20 }}</p>
-                    <a href="{% url 'CursoDetalle' curso.id %}" class="btn btn-primary">Ver clases</a>
+        <!-- Listado de cursos -->
+        <div class="row">
+            {% for curso in cursos %}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    {% if curso.imagen %}
+                    <img src="{{ curso.imagen.url }}" class="card-img-top" alt="{{ curso.titulo }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ curso.titulo }}</h5>
+                        <p class="card-text">{{ curso.descripcion|truncatewords:20 }}</p>
+                        <a href="{% url 'CursoDetalle' curso.id %}" class="btn btn-primary">Ver clases</a>
+                    </div>
                 </div>
             </div>
+            {% empty %}
+                <p>No hay cursos disponibles.</p>
+            {% endfor %}
         </div>
-        {% empty %}
-            <p>No hay cursos disponibles.</p>
-        {% endfor %}
     </div>
 </div>
 {% endblock %}

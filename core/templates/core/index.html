@@ -1,12 +1,49 @@
-{% extends './base.html' %}
+{% extends 'core/base.html' %}
+{% load static %}
 
 {% block titulo %}
-    Inicio
+    Mis cuadernos
 {% endblock titulo %}
 
-{% block cuerpo %}
-    
-    <div class="cuerpo">
-        <p>hola mundo</p>
+{% block banner %}
+    <div class="banner-sobremi">
+        <h1>Inicio</h1>
+        <p>Cuaderno personal sobre mis cursos, para repasar, practicar y crecer</p>
     </div>
+{% endblock banner %}
+
+{% block cuerpo %}
+<div class="background">
+    <div class="container mt-3">
+
+        <!-- Bienvenida destacada -->
+        <div class="index-bienvenida text-center p-4 mb-5 rounded shadow" style="background-color: #1f1f1f; color: #fff;">
+            <h1 class="display-5 fw-bold">Bienvenido a mi biblioteca digital</h1>
+            <p class="lead fst-italic text-light">Un espacio para aprender, organizar y revisar contenidos teóricos y prácticos.</p>
+        </div>
+
+        <!-- Contenido dividido en columnas -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h3>¿Qué vas a encontrar?</h3>
+                <ul>
+                    <li>Clases organizadas por temas</li>
+                    <li>Ejemplos prácticos y código</li>
+                    <li>Notas personales</li>
+                    <li>Explicaciones simples para repasar</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'core/img/django-logo.png' %}" alt="Python Django" class="img-fluid rounded shadow banners_cursos_index">
+            </div>
+        </div>
+
+        <hr class="my-5" />
+
+        <!-- Botón de acceso a cursos -->
+        <div class="text-center">
+            <a href="{% url 'Cursos' %}" class="btn btn-primary btn-lg">Ver Cursos</a>
+        </div>
+    </div>
+</div>
 {% endblock cuerpo %}

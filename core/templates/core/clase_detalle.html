@@ -1,11 +1,23 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}{{ clase.titulo }}{% endblock %}
-
+{% block banner %}
+{% endblock banner %}
 {% block cuerpo %}
+<!-- Banner con la imagen del curso -->
+<div class="curso-banner" style="background-image: url('{{ clase.curso.imagen.url }}');">
+    <div class="overlay">
+        <h1>{{ clase.curso.titulo }}</h1>
+    </div>
+</div>
+
 <div class="container mt-4">
     <h2>{{ clase.titulo }}</h2>
-    <p>{{ clase.texto_completo|linebreaks }}</p>
+    
+    <div class="carpeta-contenido p-4 my-4">
+        {{ clase.texto_completo|linebreaks }}
+    </div>
+    
     <a href="{% url 'CursoDetalle' clase.curso.id %}">← Volver al curso</a>
 </div>
 {% endblock %}

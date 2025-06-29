@@ -2,6 +2,13 @@
 
 {% block titulo %}{{ curso.titulo }}{% endblock %}
 
+{% block banner %}
+    <div class="banner-sobremi">
+        <h1>{{ curso.titulo }}</h1>
+        <p>{{ curso.descripcion|truncatewords:25 }}</p>
+    </div>
+{% endblock banner %}
+
 {% block cuerpo %}
 <div class="container mt-4">
     <h2>{{ curso.titulo }}</h2>

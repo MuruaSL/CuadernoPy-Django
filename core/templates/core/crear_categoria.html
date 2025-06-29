@@ -2,20 +2,31 @@
 
 {% block titulo %}Crear Nueva Categoría{% endblock %}
 
-{% block cuerpo %}
-<div class="container mt-4">
-    <h2>Crear Nueva Categoría</h2>
-    <form method="post" novalidate>
-        {% csrf_token %}
-        {{ form.non_field_errors }}
-
-        <div class="mb-3">
-            <label for="{{ form.nombre.id_for_label }}" class="form-label">Nombre de la Categoría</label>
-            {{ form.nombre }}
-            {{ form.nombre.errors }}
-        </div>
-
-        <button type="submit" class="btn btn-success">Crear Categoría</button>
-    </form>
+{% block banner %}
+<div class="banner-sobremi">
+    <h1>Crear Nueva Categoría</h1>
+    <p>Agrega una nueva categoría para tus cursos</p>
 </div>
-{% endblock %}
+{% endblock banner %}
+
+{% block cuerpo %}
+<div class="background">
+    <div class="container-crear_clase mt-4">
+        <div class="card formulario-tarjeta">
+            <form method="post" novalidate class="formulario-crear-clase">
+                {% csrf_token %}
+                <h5 class="form-mini-titulo_detalles_de_la_clase">Detalles de la Categoría</h5>
+                {{ form.non_field_errors }}
+
+                <div class="mb-3">
+                    <label for="{{ form.nombre.id_for_label }}" class="form-label">Nombre de la Categoría</label>
+                    {{ form.nombre }}
+                    {{ form.nombre.errors }}
+                </div>
+
+                <button type="submit" class="btn btn-success">Crear Categoría</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock cuerpo %}
