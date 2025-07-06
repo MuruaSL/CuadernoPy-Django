@@ -14,54 +14,80 @@
 <body style="padding-top: 70px;">
     {% block navbar %}
     <nav class="style-navbar navbar navbar-expand-lg bg-body-tertiary fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'Index' %}">Mis cuadernos</a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarText"
-              aria-controls="navbarText"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'Index' %}">Mis cuadernos</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <li class="nav-item">
-                  <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'Index' %}">Inicio</a>
-                </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'Index' %}">Inicio</a>
+              </li>
 
-                <li class="nav-item">
-                  <a class="nav-link {% if request.path == '/cursos/' %}active{% endif %}" href="{% url 'Cursos' %}">Cursos</a>
-                </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/cursos/' %}active{% endif %}" href="{% url 'Cursos' %}">Cursos</a>
+              </li>
 
-                <li class="nav-item">
-                  <a class="nav-link {% if request.path == '/sobremi/' %}active{% endif %}" href="{% url 'SobreMi' %}">Sobre mí</a>
-                </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/sobremi/' %}active{% endif %}" href="{% url 'SobreMi' %}">Sobre mí</a>
+              </li>
 
-                <!-- Dropdown Administrativo -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {% if activo_administrativo %}active{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Administrativo
-                    </a>
+              <!-- Dropdown Administrativo -->
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle {% if activo_administrativo %}active{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Administrativo
+                  </a>
 
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'CrearCategoria' %}">Crear Categoría</a></li>
-                    <li><a class="dropdown-item" href="{% url 'CrearCurso' %}">Crear Curso</a></li>
-                    <li><a class="dropdown-item" href="{% url 'CrearClase' %}">Crear Clase</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="/admin/">Admin Django</a></li>
-                  </ul>
-                </li>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'CrearCategoria' %}">Crear Categoría</a></li>
+                  <li><a class="dropdown-item" href="{% url 'CrearCurso' %}">Crear Curso</a></li>
+                  <li><a class="dropdown-item" href="{% url 'CrearClase' %}">Crear Clase</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/admin/">Admin Django</a></li>
+                </ul>
+              </li>
 
-              </ul>
-              <span class="navbar-text">Bienvenido</span>
-            </div>
-        </div>
+            </ul>
+
+            <!-- Menú Usuario -->
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              {% if user.is_authenticated %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ user.username }}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownUser">
+                  <li><a class="dropdown-item" href="{% url 'ver_perfil' %}">Mi Perfil</a></li>
+                  <li><a class="dropdown-item" href="{% url 'editar_perfil' %}">Editar Perfil</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                    <form method="post" action="{% url 'logout' %}">
+                      {% csrf_token %}
+                      <button type="submit" class="dropdown-item">Cerrar Sesión</button>
+                    </form>
+                  </li>
+                </ul>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+      </div>
     </nav>
+
     {% endblock navbar %}
     
     {% block banner %}

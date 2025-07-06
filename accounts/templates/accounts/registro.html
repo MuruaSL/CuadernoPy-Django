@@ -1,0 +1,32 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}Registro de Usuario{% endblock %}
+
+{% block banner %}
+<div class="banner-sobremi">
+  <h1>Registro</h1>
+  <p>Crea tu cuenta para acceder</p>
+</div>
+{% endblock %}
+
+{% block cuerpo %}
+<div class="background">
+  <div class="container-crear_clase mt-4">
+    <div class="card formulario-tarjeta">
+      <form method="post" novalidate class="formulario-crear-clase">
+        {% csrf_token %}
+        <h5 class="form-mini-titulo_detalles_de_la_clase">Registro</h5>
+        {{ form.non_field_errors }}
+        {% for field in form %}
+          <div class="mb-3">
+            <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+            {{ field }}
+            {{ field.errors }}
+          </div>
+        {% endfor %}
+        <button type="submit" class="btn botones_negros">Registrarme</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

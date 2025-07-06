@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}Mi Perfil{% endblock %}
+
+{% block banner %}
+<div class="banner-sobremi">
+  <h1>Mi Perfil</h1>
+  <p>Información personal de tu cuenta</p>
+</div>
+{% endblock %}
+
+{% block cuerpo %}
+<div class="background">
+  <div class="container mt-4">
+    <div class="card perfil-card p-4 shadow-sm">
+      <div class="perfil-header d-flex align-items-center mb-4">
+        {% if perfil.avatar %}
+          <img src="{{ perfil.avatar.url }}" alt="Avatar" class="perfil-avatar me-4">
+        {% else %}
+          <div class="perfil-avatar perfil-avatar-placeholder me-4">
+            <span>Sin avatar</span>
+          </div>
+        {% endif %}
+        <div>
+          <h2 class="perfil-username">{{ perfil.user.username }}</h2>
+          <p class="perfil-email">{{ perfil.user.email }}</p>
+        </div>
+      </div>
+
+      <div class="perfil-info">
+        <p><strong>Biografía:</strong> <span class="perfil-bio">{{ perfil.bio|default:"Sin biografía." }}</span></p>
+        <p><strong>Fecha de nacimiento:</strong> <span class="perfil-birthdate">{{ perfil.birth_date|date:"d/m/Y"|default:"Sin fecha." }}</span></p>
+      </div>
+
+      <a href="{% url 'editar_perfil' %}" class="btn botones_negros mt-4">Editar Perfil</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
