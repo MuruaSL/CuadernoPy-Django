@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}Eliminar Clase{% endblock %}
+
+{% block banner %}
+<div class="banner-sobremi">
+    <h1>Eliminar Clase</h1>
+    <p>¿Estás seguro que querés eliminar esta clase?</p>
+</div>
+{% endblock banner %}
+
+{% block cuerpo %}
+<div class="background">
+    <div class="container-crear_clase mt-4">
+        <div class="card formulario-tarjeta p-4 text-center">
+            <p>Clase: <strong>{{ object.titulo }}</strong></p>
+            <form method="post" novalidate>
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+                <a href="{% url 'clase_detalle' object.pk %}" class="btn btn-secondary ms-2">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock cuerpo %}

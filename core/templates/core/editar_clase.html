@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}Editar Clase{% endblock %}
+
+{% block banner %}
+<div class="banner-sobremi">
+    <h1>Editar Clase</h1>
+    <p>Modifica los detalles de la clase</p>
+</div>
+{% endblock banner %}
+
+{% block cuerpo %}
+<div class="background">
+    <div class="container-crear_clase mt-4">
+        <div class="card formulario-tarjeta">
+            <form method="post" enctype="multipart/form-data" novalidate class="formulario-crear-clase">
+                {% csrf_token %}
+                <h5 class="form-mini-titulo_detalles_de_la_clase">Detalles del Contenido</h5>
+                {{ form.non_field_errors }}
+                {% for field in form %}
+                    <div class="mb-3">
+                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                        {{ field }}
+                        {{ field.errors }}
+                    </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-success">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock cuerpo %}

@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import MensajeContacto, Curso, Clase
+from .models import Curso, Clase
 from .forms import ContactoFormulario, ClaseForm, CursoForm, CategoriaForm  # usado en sobremi
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 def index(request):
     return render(request, "core/index.html")
@@ -29,9 +32,30 @@ def curso_detalle(request, curso_id):
         "query": query
     })
 
-def clase_detalle(request, clase_id):
-    clase = get_object_or_404(Clase, id=clase_id)
-    return render(request, "core/clase_detalle.html", {"clase": clase})
+    #   Aplicacion de CBV - DetailView para detalles de clases 
+class ClaseDetailView(DetailView):
+    model = Clase
+    template_name = 'core/clase_detalle.html'
+    context_object_name = 'clase'
+    
+class ClaseCreateView(CreateView):
+    model = Clase
+    form_class = ClaseForm
+    template_name = 'core/crear_clase.html'
+    success_url = reverse_lazy('Cursos')
+
+
+class ClaseUpdateView(UpdateView):
+    model = Clase
+    form_class = ClaseForm
+    template_name = 'core/editar_clase.html'  
+    success_url = reverse_lazy('Cursos')
+
+
+class ClaseDeleteView(DeleteView):
+    model = Clase
+    template_name = 'core/eliminar_clase.html'
+    success_url = reverse_lazy('Cursos')
 
 def sobremi(request):
     if request.method == "POST":
@@ -44,29 +68,43 @@ def sobremi(request):
     return render(request, "core/sobremi.html", {"form": form})
 
 
-def crear_clase(request):
-    if request.method == "POST":
-        form = ClaseForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect("Cursos")
-    else:
-        form = ClaseForm()
-    return render(request, "core/crear_clase.html", {"form": form})
+#   Aplicacion de CBV - DetailView para detalles de clases 
+class ClaseCreateView(CreateView):
+    model = Clase
+    form_class = ClaseForm
+    template_name = 'core/crear_clase.html'
+    success_url = reverse_lazy('Cursos')
 
-def crear_curso(request):
-    if request.method == "POST":
-        form = CursoForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('Cursos')
-    else:
-        form = CursoForm()
-    return render(request, 'core/crear_curso.html', {
-        'form': form,
-        'activo_administrativo': True 
-    })
+# def crear_curso(request):
+#     if request.method == "POST":
+#         form = CursoForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('Cursos')
+#     else:
+#         form = CursoForm()
+#     return render(request, 'core/crear_curso.html', {
+#         'form': form,
+#         'activo_administrativo': True 
+#     })
 
+class CursoCreateView(CreateView):
+    model = Curso
+    form_class = CursoForm
+    template_name = 'core/crear_curso.html'
+    success_url = reverse_lazy('Cursos')
+
+class CursoUpdateView(UpdateView):
+    model = Curso
+    form_class = CursoForm
+    template_name = 'core/editar_curso.html'
+    success_url = reverse_lazy('Cursos')
+
+class CursoDeleteView(DeleteView):
+    model = Curso
+    template_name = 'core/eliminar_curso.html'
+    success_url = reverse_lazy('Cursos')
+    
 def crear_categoria(request):
     if request.method == 'POST':
         form = CategoriaForm(request.POST)

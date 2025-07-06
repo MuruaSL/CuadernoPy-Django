@@ -478,3 +478,50 @@ button[type="submit"] {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   white-space: pre-wrap;      /* respeta saltos de línea */
 }
+
+/* Botones en formularios de eliminación */
+.botones-acciones {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.btn-eliminar,
+.btn-cancelar {
+  appearance: none;
+  padding: 12px 25px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* Botón eliminar (rojo) */
+.btn-eliminar {
+  background-color: #dc3545 !important;
+  color: white;
+  margin: 0px !important;
+}
+.btn-eliminar:hover {
+  background-color: #c82333 !important;
+  
+}
+
+/* Botón cancelar (gris) */
+.btn-cancelar {
+  background-color: #6c757d !important;
+  color: white;
+  font-weight: 700;
+}
+.btn-cancelar:hover {
+  background-color: #5a6268 !important;
+}

@@ -1,7 +1,7 @@
 from django import forms
-from .models import Clase, Curso, Categoria
+from .models import Clase, Curso, Categoria, MensajeContacto
 
-class ContactoFormulario(forms.Form):
+class ContactoFormulario(forms.ModelForm):
     nombre = forms.CharField(
         max_length=100,
         label='Tu nombre',
@@ -19,6 +19,10 @@ class ContactoFormulario(forms.Form):
             'placeholder': 'Escribí tu mensaje acá...'
         })
     )
+
+    class Meta:
+        model = MensajeContacto  
+        fields = ['nombre', 'email', 'mensaje']  
 
 class ClaseForm(forms.ModelForm):
     class Meta:

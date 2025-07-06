@@ -32,8 +32,13 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ clase.titulo }}</h5>
                     <p class="card-text">{{ clase.descripcion|truncatewords:20 }}</p>
-                    <a href="{% url 'ClaseDetalle' clase.id %}" class="btn btn-primary">Ver más</a>
+                    <a href="{% url 'clase_detalle' clase.id %}" class="btn btn-primary">Ver más</a>
+                    
+                    <!-- Botones administrativos -->
+                    <a href="{% url 'EditarClase' clase.pk %}" class="btn btn-warning btn-sm ms-2">Editar</a>
+                    <a href="{% url 'EliminarClase' clase.pk %}" class="btn btn-danger btn-sm ms-2">Eliminar</a>
                 </div>
+
             </div>
         </div>
         {% empty %}
