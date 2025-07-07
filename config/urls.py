@@ -42,5 +42,6 @@ urlpatterns = [
     path('eliminar_clase/<int:pk>/', views.ClaseDeleteView.as_view(), name='EliminarClase'),
     
     # URLS de perfil (Accounts)
-    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('accounts.urls')),        
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
