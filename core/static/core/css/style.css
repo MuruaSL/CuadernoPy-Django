@@ -44,6 +44,14 @@
   font-style: italic;
 }
 
+.tamano_logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: fill;
+}
+
+
 /* ========== Banner común ========== */
 .banner {
   width: 100vw;

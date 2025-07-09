@@ -64,6 +64,11 @@
               {% if user.is_authenticated %}
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {% if user.profile.avatar %}
+                      <img src="{{ user.profile.avatar.url }}" class="tamano_logo me-1" alt="Avatar">
+                    {% else %}
+                      <img src="{% static 'core/img/avatar_default.png' %}" class="tamano_logo me-1" alt="Avatar">
+                    {% endif %}
                   {{ user.username }}
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownUser">
