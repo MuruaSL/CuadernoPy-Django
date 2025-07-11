@@ -30,10 +30,10 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ curso.titulo }}</h5>
                         <p class="card-text card-text ">{{ curso.descripcion|truncatewords:20 }}</p>
-                        <div>
-                            <a href="{% url 'CursoDetalle' curso.id %}" class="btn btn-primary mb-1">Ver clases</a>
-                            <a href="{% url 'EditarCurso' curso.id %}" class="btn btn-warning mb-1">Editar Curso</a>
-                            <a href="{% url 'EliminarCurso' curso.id %}" class="btn btn-danger">Eliminar Curso</a>
+                        <div class="div_botones_curso">
+                            <a href="{% url 'CursoDetalle' curso.id %}" class="btn btn-primary curso_btn">Ver clases</a>
+                            <a href="{% url 'EditarCurso' curso.id %}" class="btn btn-warning  curso_btn">Editar Curso</a>
+                            <a href="{% url 'EliminarCurso' curso.id %}" class="btn btn-danger curso_btn">Eliminar Curso</a>
                         </div>
                     </div>
 

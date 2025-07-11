@@ -25,18 +25,19 @@
     <div class="row">
         {% for clase in clases %}
         <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
+            <div class="card mb-4 shadow-sm  tamano_card_detalle_curso">
                 {% if clase.imagen %}
                 <img src="{{ clase.imagen.url }}" class="card-img-top" alt="{{ clase.titulo }}">
                 {% endif %}
-                <div class="card-body">
+                <div class="card-body  ">
                     <h5 class="card-title">{{ clase.titulo }}</h5>
                     <p class="card-text">{{ clase.descripcion|truncatewords:20 }}</p>
-                    <a href="{% url 'clase_detalle' clase.id %}" class="btn btn-primary">Ver más</a>
-                    
-                    <!-- Botones administrativos -->
-                    <a href="{% url 'EditarClase' clase.pk %}" class="btn btn-warning btn-sm ms-2">Editar</a>
-                    <a href="{% url 'EliminarClase' clase.pk %}" class="btn btn-danger btn-sm ms-2">Eliminar</a>
+                    <div class="div_botones_detalle_curso">
+                        <a href="{% url 'clase_detalle' clase.id %}" class="btn btn-primary detalle_curso_btn">Ver más</a>
+                        <!-- Botones administrativos -->
+                        <a href="{% url 'EditarClase' clase.pk %}" class="btn btn-warning detalle_curso_btn">Editar</a>
+                        <a href="{% url 'EliminarClase' clase.pk %}" class="btn btn-danger  detalle_curso_btn ">Eliminar</a>
+                    </div>
                 </div>
 
             </div>

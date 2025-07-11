@@ -707,12 +707,40 @@ button[type="submit"] {
 
 /* PAGINA LISTADO CURSOS */
 .tamano_card_curso {
-    height: 60vh; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  height: 60vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+.tamano_card_detalle_curso{
+  height: 40vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;}
 
+.curso_btn{
+  max-width: 35%;
+ 
+}
+.detalle_curso_btn{
+  width: 33%;
+  font-size: 1.9vh;
+}
+.div_botones_detalle_curso{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+ 
+}
+.div_botones_curso{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
 .card-img-top {
     height: 50%;
     object-fit: cover;
@@ -729,5 +757,6 @@ button[type="submit"] {
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3; /* Cantidad de líneas visibles */
+    line-clamp: 3; /*Cantidad de líneas visibles(todavía en adopción) */
     -webkit-box-orient: vertical;
 }
