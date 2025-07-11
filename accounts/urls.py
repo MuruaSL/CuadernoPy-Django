@@ -14,4 +14,12 @@ urlpatterns = [
     name='login'
 ),
     path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),
+    path('password_change/', auth_views.PasswordChangeView.as_view(
+        template_name='accounts/cambiar_contrasena.html',
+        success_url='/accounts/password_change/done/'
+    ), name='password_change'),
+    
+    path('password_change/done/', auth_views.PasswordChangeDoneView.as_view(
+        template_name='accounts/cambiar_contrasena_realizada.html'
+    ), name='password_change_done'),
 ]

@@ -43,6 +43,7 @@
               </li>
 
               <!-- Dropdown Administrativo -->
+              {% if user.is_authenticated %}
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle {% if activo_administrativo %}active{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Administrativo
@@ -56,6 +57,7 @@
                   <li><a class="dropdown-item" href="/admin/">Admin Django</a></li>
                 </ul>
               </li>
+              {% endif %}
 
             </ul>
 
@@ -74,6 +76,8 @@
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownUser">
                   <li><a class="dropdown-item" href="{% url 'ver_perfil' %}">Mi Perfil</a></li>
                   <li><a class="dropdown-item" href="{% url 'editar_perfil' %}">Editar Perfil</a></li>
+                  <li><a class="dropdown-item" href="{% url 'password_change' %}">Cambiar Contraseña</a></li>
+
                   <li><hr class="dropdown-divider"></li>
                   <li>
                     <form method="post" action="{% url 'logout' %}">

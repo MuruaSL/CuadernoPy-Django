@@ -75,19 +75,6 @@ class ClaseCreateView(CreateView):
     template_name = 'core/crear_clase.html'
     success_url = reverse_lazy('Cursos')
 
-# def crear_curso(request):
-#     if request.method == "POST":
-#         form = CursoForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('Cursos')
-#     else:
-#         form = CursoForm()
-#     return render(request, 'core/crear_curso.html', {
-#         'form': form,
-#         'activo_administrativo': True 
-#     })
-
 class CursoCreateView(CreateView):
     model = Curso
     form_class = CursoForm

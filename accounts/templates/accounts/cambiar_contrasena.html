@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+{% block titulo %}Cambiar Contraseña{% endblock %}
+{% block cuerpo %}
+<div class="container mt-4">
+  <h2>Cambiar Contraseña</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Cambiar</button>
+  </form>
+</div>
+{% endblock %}

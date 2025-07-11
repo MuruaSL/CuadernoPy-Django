@@ -46,3 +46,18 @@ class FormularioPerfil(forms.ModelForm):
             existing_classes = field.widget.attrs.get('class', '')
             clases = existing_classes + ' form-campo-input' if existing_classes else 'form-campo-input'
             field.widget.attrs['class'] = clases
+
+class FormularioUsuario(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+        labels = {
+            'first_name': 'Nombre',
+            'last_name': 'Apellido',
+            'email': 'Correo Electrónico',
+        }
+        widgets = {
+            'email': forms.EmailInput(attrs={'class': 'form-campo-input'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-campo-input'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-campo-input'}),
+        }
