@@ -1,5 +1,6 @@
 # Create your models here.
 from django.db import models
+from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 
 class MensajeContacto(models.Model):
@@ -31,7 +32,7 @@ class Clase(models.Model):
     titulo = models.CharField(max_length=200)
     descripcion = models.TextField()
     imagen = models.ImageField(upload_to="imagenes_clases/", null=True, blank=True)
-    texto_completo = models.TextField()
+    texto_completo = RichTextField()
 
     def __str__(self):
         return self.titulo

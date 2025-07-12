@@ -7,15 +7,15 @@
 <!-- Banner con la imagen del curso -->
 <div class="curso-banner" style="background-image: url('{{ clase.curso.imagen.url }}');">
     <div class="overlay">
-        <h1>{{ clase.curso.titulo }}</h1>
+        <h1>{{ clase.curso.titulo|safe }}</h1>
     </div>
 </div>
 
 <div class="container mt-4">
-    <h2>{{ clase.titulo }}</h2>
+    <h2>{{ clase.titulo|safe }}</h2>
     
     <div class="carpeta-contenido p-4 my-4">
-        {{ clase.texto_completo|linebreaks }}
+        {{ clase.texto_completo|safe|linebreaks }}
     </div>
     
     <a href="{% url 'CursoDetalle' clase.curso.id %}">← Volver al curso</a>

@@ -1,5 +1,6 @@
 from django import forms
 from .models import Clase, Curso, Categoria, MensajeContacto
+from ckeditor.widgets import CKEditorWidget
 
 class ContactoFormulario(forms.ModelForm):
     nombre = forms.CharField(
@@ -33,7 +34,7 @@ class ClaseForm(forms.ModelForm):
             'titulo': forms.TextInput(attrs={'class': 'form-control'}),
             'descripcion': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
             'imagen': forms.ClearableFileInput(attrs={'class': 'form-control'}),
-            'texto_completo': forms.Textarea(attrs={'class': 'form-control', 'rows': 6}),
+            'texto_completo': CKEditorWidget(),
         }
 
 class CursoForm(forms.ModelForm):
@@ -43,7 +44,7 @@ class CursoForm(forms.ModelForm):
         widgets = {
             'categoria': forms.Select(attrs={'class': 'form-select'}),
             'titulo': forms.TextInput(attrs={'class': 'form-control'}),
-            'descripcion': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            'descripcion': CKEditorWidget(),
             'imagen': forms.ClearableFileInput(attrs={'class': 'form-control'}),
         }
         

@@ -24,12 +24,12 @@
                 </div>
                 <div class="mb-3">
                     <label for="{{ form.titulo.id_for_label }}" class="form-label">Título</label>
-                    {{ form.titulo }}
+                    {{ form.titulo |safe}}
                     {{ form.titulo.errors }}
                 </div>
                 <div class="mb-3">
                     <label for="{{ form.descripcion.id_for_label }}" class="form-label">Descripción</label>
-                    {{ form.descripcion }}
+                    {{ form.descripcion|safe}}
                     {{ form.descripcion.errors }}
                 </div>
                 <div class="mb-3">

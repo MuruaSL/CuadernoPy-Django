@@ -1,4 +1,6 @@
 /* ========== Fondo general (background para todo el body o main container) ========== */
+
+
 .background {
   background: linear-gradient(180deg, #121212 0%, #2c2c2c 100%);
   background-size: cover;
@@ -699,7 +701,6 @@ button[type="submit"] {
   color: #292929;
   font-weight: 600;
   font-size: 1rem;
-  text-decoration: underline;
 }
 .btn-volver-perfil:hover {
   color: #0d6efd;
@@ -708,19 +709,26 @@ button[type="submit"] {
 /* PAGINA LISTADO CURSOS */
 .tamano_card_curso {
   height: 60vh; 
+  max-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .tamano_card_detalle_curso{
   height: 40vh; 
+  max-height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;}
 
 .curso_btn{
   max-width: 35%;
- 
+}
+.curso_img{
+  height: 50%;
+}
+.texto_card_curso{
+  max-height: 50%;
 }
 .detalle_curso_btn{
   width: 33%;
@@ -759,4 +767,33 @@ button[type="submit"] {
     -webkit-line-clamp: 3; /* Cantidad de líneas visibles */
     line-clamp: 3; /*Cantidad de líneas visibles(todavía en adopción) */
     -webkit-box-orient: vertical;
+}
+
+/* PARA QUITAR SUBRAYADOS AUTOMATICOS DE BOOTSTRAP */
+a.btn:hover,
+a.btn:focus,
+a.btn-primary:hover,
+a.btn-primary:focus,
+a.btn-warning:hover,
+a.btn-warning:focus,
+a.btn-danger:hover,
+a.btn-danger:focus,
+a.botones_negros:hover,
+a.botones_negros:focus {
+  text-decoration: none !important;
+}
+
+a.btn,
+a.btn-primary,
+a.btn-warning,
+a.btn-danger,
+a.botones_negros {
+  text-decoration: none !important;
+}
+.card-body a {
+  text-decoration: none !important;
+}
+
+.card-body a:hover {
+  text-decoration: none !important;
 }

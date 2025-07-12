@@ -1,18 +1,18 @@
 {% extends 'core/base.html' %}
 
-{% block titulo %}{{ curso.titulo }}{% endblock %}
+{% block titulo %}{{ curso.titulo|safe }}{% endblock %}
 
 {% block banner %}
     <div class="banner-sobremi">
-        <h1>{{ curso.titulo }}</h1>
-        <p>{{ curso.descripcion|truncatewords:25 }}</p>
+        <h1>{{ curso.titulo|safe }}</h1>
+        <p>{{ curso.descripcion|truncatewords:25|safe }}</p>
     </div>
 {% endblock banner %}
 
 {% block cuerpo %}
 <div class="container mt-4">
-    <h2>{{ curso.titulo }}</h2>
-    <p>{{ curso.descripcion }}</p>
+    <h2>{{ curso.titulo|safe }}</h2>
+    <p>{{ curso.descripcion|safe }}</p>
 
     <h3>Clases</h3>
     <!-- Buscador de clases -->
@@ -27,11 +27,11 @@
         <div class="col-md-4">
             <div class="card mb-4 shadow-sm  tamano_card_detalle_curso">
                 {% if clase.imagen %}
-                <img src="{{ clase.imagen.url }}" class="card-img-top" alt="{{ clase.titulo }}">
+                <img src="{{ clase.imagen.url }}" class="card-img-top" alt="{{ clase.titulo|safe }}">
                 {% endif %}
                 <div class="card-body  ">
-                    <h5 class="card-title">{{ clase.titulo }}</h5>
-                    <p class="card-text">{{ clase.descripcion|truncatewords:20 }}</p>
+                    <h5 class="card-title">{{ clase.titulo|safe }}</h5>
+                    <p class="card-text">{{ clase.descripcion|safe|truncatewords:20}}</p>
                     <div class="div_botones_detalle_curso">
                         <a href="{% url 'clase_detalle' clase.id %}" class="btn btn-primary detalle_curso_btn">Ver más</a>
                         <!-- Botones administrativos -->
