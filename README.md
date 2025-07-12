@@ -1,100 +1,154 @@
-Mis Cuadernos: Py + Django
+# Cuaderno Py + Django
 
-Sitio web personal desarrollado en Django para organizar clases, cursos y contenidos técnicos. Funciona como una biblioteca digital con navegación por categorías, cursos y clases.
+Sitio web personal desarrollado con Django para organizar clases, cursos y contenidos técnicos. Funciona como una biblioteca digital, con navegación jerárquica por categorías, cursos y clases. Está orientado tanto a la práctica profesional como al aprendizaje.
 
-INSTALACIÓN Y EJECUCIÓN DEL PROYECTO
+---
 
-    Clonar el repositorio:
-    git clone https://github.com/tu_usuario/tu_repo.git
-    cd tu_repo
+## 🛠 Instalación y ejecución del proyecto
 
-    Crear y activar entorno virtual:
+1. **Clonar el repositorio:**  
+```bash
+git clone https://github.com/MuruaSL/CuadernoPy-Django.git
+cd CuadernoPy-Django
+```
 
-Windows:
-python .venv\Scripts\activate
+2. **Crear y activar entorno virtual:**
 
-Linux/Mac:
+**Windows:**  
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+**Linux/Mac:**  
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
+```
 
-    Instalar dependencias:
-    pip install -r requirements.txt
-
-    Ejecutar migraciones:
-    python manage.py migrate
-
-    Crear superusuario (opcional):
-    python manage.py createsuperuser
-
-    Iniciar servidor:
-    python manage.py runserver
-
-Abrí el navegador en: http://127.0.0.1:8000
-
-¿CÓMO NAVEGAR EL SITIO?
-
-INICIO
-URL: /
-Bienvenida general y botón para ver cursos.
-
-CURSOS
-URL: /cursos/
-Lista todos los cursos organizados por categorías.
-
-CURSO (DETALLE)
-URL: /curso/<id>/
-Muestra las clases asociadas al curso seleccionado.
-
-CLASE (DETALLE)
-URL: /clase/<id>/
-Contenido completo con estilo tipo carpeta, e imagen de cabecera del curso.
-
-SOBRE MÍ
-URL: /sobremi/
-
-FUNCIONALIDADES ADMINISTRATIVAS
-
-Acceso desde la barra de navegación → Administrativo:
-
-    Crear Categoría: /crear_categoria/
-
-    Crear Curso: /crear_curso/
-
-    Crear Clase: /crear_clase/
-
-    Admin de Django: /admin/
-
-MODELOS
-
-    Categoría: agrupa varios cursos.
-
-    Curso: agrupa varias clases. Tiene título, descripción e imagen.
-
-    Clase: contenido textual, imagen opcional, título y descripción.
-
-ESTILO GENERAL
-
-    Diseño sobrio con fondo oscuro y texto claro.
-
-    Banner personalizado por página.
-
-    Favicon ubicado en: core/static/core/img/favicon.ico
-
-    Responsive con Bootstrap 5.3.
-
-    Tipografías y sombras para una lectura cómoda.
-
-DEPENDENCIAS
-
-Las dependencias necesarias están en requirements.txt (ya actualizado), por ejemplo:
-
-Django>=4.2
-Pillow
-
-Instalación:
+3. **Instalar dependencias:**  
+```bash
 pip install -r requirements.txt
+```
 
-AUTOR
+4. **Ejecutar migraciones:**  
+```bash
+python manage.py migrate
+```
 
-Sergio Murua
+5. **Crear superusuario (opcional):**  
+```bash
+python manage.py createsuperuser
+```
+
+6. **Iniciar servidor de desarrollo:**  
+```bash
+python manage.py runserver
+```
+
+Accedé desde tu navegador: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+---
+
+## 🧭 ¿Cómo navegar el sitio?
+
+- **Inicio:** `/`  
+  Página de bienvenida con acceso a los cursos.
+
+- **Cursos:** `/cursos/`  
+  Lista de cursos organizados por categorías.
+
+- **Detalle de curso:** `/curso/<id>/`  
+  Muestra las clases relacionadas al curso.
+
+- **Detalle de clase:** `/clase/<id>/`  
+  Contenido completo estilo carpeta, con imagen y descripción.
+
+- **Sobre mí:** `/sobremi/`  
+  Perfil del autor con biografía, avatar y datos personales.
+
+---
+
+## 🔧 Funcionalidades administrativas
+
+Accesibles desde la barra de navegación (con usuario autenticado):
+
+- Crear Categoría: `/crear_categoria/`
+- Crear Curso: `/crear_curso/`
+- Crear Clase: `/crear_clase/`
+- Panel Django: `/admin/`
+
+Otras funciones:
+
+- Editar perfil (nombre, bio, fecha de nacimiento)
+- Subir avatar
+- Cambiar contraseña
+- Contenido enriquecido con CKEditor
+
+---
+
+## 📦 Modelos implementados
+
+- **Categoría:** agrupa múltiples cursos.  
+- **Curso:** título, descripción enriquecida y una imagen.  
+- **Clase:** contenido enriquecido (rich text), imagen opcional, título y descripción.
+
+---
+
+## 🎨 Estilo y diseño
+
+- Interfaz oscura, moderna y responsiva (Bootstrap 5.3).
+- Banners personalizados por página.
+- Tipografías legibles y sombras suaves.
+- Favicon en: `core/static/core/img/favicon.ico`
+
+---
+
+## 🔐 Autenticación y seguridad
+
+- Registro, login y logout.
+- Cambio de contraseña (`PasswordChangeView`).
+- Rutas protegidas con `@login_required`.
+- Perfil personalizado con avatar, bio y fecha de nacimiento.
+- Validación de formularios con mensajes.
+
+---
+
+## 📋 Dependencias principales
+
+- Django >= 4.2  
+- Pillow  
+- django-ckeditor  
+
+Instalación:  
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 👤 Autor
+
+**Sergio Murua**  
 Proyecto personal de práctica y documentación técnica.
+
+---
+
+## ✅ Checklist de funcionalidades
+
+| Requisito                        | Estado |
+|----------------------------------|--------|
+| Herencia de templates            | ✅     |
+| Navbar común                     | ✅     |
+| Páginas públicas (Home, About)   | ✅     |
+| CRUD con CBVs                    | ✅     |
+| Uso de 2 CBVs mínimo             | ✅     |
+| Decorador `@login_required`      | ✅     |
+| Cambio de contraseña             | ✅     |
+| Texto enriquecido (CKEditor)     | ✅     |
+| Campo de fecha (birth_date)      | ✅     |
+| Mensaje si no hay objetos        | ✅     |
+| Perfil con avatar y bio          | ✅     |
+| Registro, Login, Logout          | ✅     |
+| Admin con modelos registrados    | ✅     |
+| Git + README + requirements.txt  | ✅     |
