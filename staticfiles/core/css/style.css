@@ -1,0 +1,825 @@
+/* ========== Fondo general (background para todo el body o main container) ========== */
+
+
+.background {
+  background: linear-gradient(180deg, #121212 0%, #2c2c2c 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+
+/* ========== Navbar ========== */
+.style-navbar {
+  background-color: #1a1a1a !important;
+  padding: 10px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+.style-navbar .navbar-brand {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+.style-navbar .navbar-nav .nav-link {
+  color: #cccccc;
+  margin-right: 15px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+.style-navbar .navbar-nav .nav-link.active,
+.style-navbar .navbar-nav .nav-link:hover {
+  color: #ffffff;
+  border-bottom: 2px solid #0d6efd;
+}
+.style-navbar .navbar-text {
+  color: #aaaaaa;
+  font-style: italic;
+}
+
+.tamano_logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: fill;
+}
+
+
+/* ========== Banner común ========== */
+.banner {
+  width: 100vw;
+  max-height: 5vw;
+}
+
+/* ========== Banner para la página "Sobre mí" ========== */
+.banner-sobremi {
+  width: 100%;
+  background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
+  color: white;
+  text-align: center;
+  padding: 25px 20px;
+  border-bottom: 4px solid #aaaaaa;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+.banner-sobremi h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.banner-sobremi p {
+  font-size: 1.1rem;
+  color: #cccccc;
+  font-style: italic;
+}
+
+/* ========== Contenedor principal de contenido ========== */
+.container {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.5);
+}
+
+/* ========== Layout "Sobre mí" ========== */
+.sobre-mi-flex {
+  display: flex;
+  gap: 30px;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.foto-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 300px;
+  max-width: 250px;
+  box-shadow: 0 10px 20px rgba(13, 110, 253, 0.4);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.foto-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.foto-container:hover {
+  transform: scale(1.05);
+}
+.texto-sobre-mi {
+  flex: 2 1 400px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  color: #222;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  position: relative;
+}
+.texto-sobre-mi::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: -15px;
+  width: 12px;
+  height: 95%;
+  background: #191c20;
+  border-radius: 5px;
+}
+
+/* ========== Inputs y textareas ========== */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #000;
+  box-sizing: border-box;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #070808;
+  outline: none;
+  box-shadow: 0 0 8px rgba(4, 38, 88, 0.3);
+}
+
+/* ========== Botones ========== */
+
+ .botones_negros {
+  background-color: #292929;
+  color: white;
+  font-weight: 700;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(73, 73, 73, 0.4);
+}
+.botones_negros:hover {
+  background-color: #4c4d4d;
+  box-shadow: 0 6px 20px rgba(73, 73, 73, 0.6);
+}
+
+
+/* ========== Formulario ========== */
+.titulo_formulario_contacto {
+  text-align: left;
+  margin-left: 10%;
+}
+.formulario-contacto {
+  background-color: #fefefe;
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  max-width: 70vw;
+  margin: 20px auto 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.formulario-contacto label {
+  font-weight: 600;
+  color: #222;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+}
+
+
+.input-form-estandar {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1.8px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+  min-height: 42px;
+}
+
+
+/* ========== Alertas tradicionales (ya no se usan si todo va por toast) ========== */
+.alert {
+  max-width: 600px;
+  margin: 15px auto;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.alert-success {
+  background-color: #d1e7dd;
+  color: #0f5132;
+  border: 1.5px solid #badbcc;
+}
+.alert-danger {
+  background-color: #f8d7da;
+  color: #842029;
+  border: 1.5px solid #f5c2c7;
+}
+
+/* ========== Toasts ========== */
+.toast {
+  min-width: 250px;
+  margin-top: 10px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  font-size: 0.95rem;
+  opacity: 0.95;
+  transition: opacity 0.5s ease-in-out;
+}
+.toast.show {
+  opacity: 1;
+}
+.toast.hide {
+  opacity: 0;
+}
+.toast-error {
+  background-color: #d9534f; /* rojo */
+  color: white;
+}
+.toast-success {
+  background-color: #198754; /* verde */
+  color: #ffffff;
+}
+
+/* ================= Recuadro de busqueda =================== */
+.boton_busqueda{
+  max-height: 5vh;
+}
+.input_busqueda{
+  max-height: 5vh;
+}
+
+.container_busqueda{
+  background-color: #fefefe;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  margin: 20px auto 40px auto;
+}
+
+button[type="submit"] {
+  padding: 0px 15px;
+}
+
+
+.input-group .form-control.input_busqueda {
+  margin-bottom: 0 !important;
+}
+
+
+/* ========== Página de Inicio (index.html) ========== */
+
+.index-bienvenida {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.index-bienvenida h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.index-bienvenida p {
+  font-size: 1.2rem;
+  color: #dddddd;
+  font-style: italic;
+}
+
+.index-seccion-info {
+  margin-top: 40px;
+}
+
+.index-seccion-info h3 {
+  color: #111111;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.index-seccion-info ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #222;
+  font-size: 1.1rem;
+}
+
+.index-seccion-info li {
+  margin-bottom: 10px;
+}
+
+.index-banner-img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.index-boton-cursos {
+  margin-top: 30px;
+  padding: 15px 40px;
+  font-size: 1.3rem;
+  border-radius: 12px;
+  font-weight: bold;
+}
+.banners_cursos_index{
+  max-height: 10vh;
+}
+
+/* ========== Formulario Crear Clase ========== */
+.formulario-crear-clase {
+  background-color: #f9f9f9; /* más claro que container general */
+  padding: 30px 35px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  max-width: 70vw;
+  margin: 30px auto 20px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.formulario-crear-clase label {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  display: block;
+  color: #222;
+}
+
+.formulario-crear-clase input[type="text"],
+.formulario-crear-clase textarea,
+.formulario-crear-clase select,
+.formulario-crear-clase input[type="file"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 22px;
+  border-radius: 10px;
+  border: 1.5px solid #bbb;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+  resize: vertical;
+  color: #222;
+  background-color: #fff;
+}
+
+.formulario-crear-clase input[type="text"]:focus,
+.formulario-crear-clase textarea:focus,
+.formulario-crear-clase select:focus,
+.formulario-crear-clase input[type="file"]:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 8px rgba(13, 110, 253, 0.5);
+  outline: none;
+}
+
+.formulario-crear-clase textarea {
+  min-height: 140px;
+}
+
+.formulario-crear-clase .btn-primary {
+  background-color: #000000;
+  color: white;
+  font-weight: 700;
+  padding: 14px 35px;
+  font-size: 1.1rem;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 5px 18px rgba(13, 110, 253, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.formulario-crear-clase .btn-primary:hover {
+  background-color: #323232;
+  box-shadow: 0 6px 25px rgba(8, 76, 217, 0.7);
+}
+.container-crear_clase{
+  max-width: 720px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.form-mini-titulo_detalles_de_la_clase{
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #222;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 5px;
+  letter-spacing: 0.5px;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+
+/*============== HTML Clase Detalle ===============*/
+
+.curso-banner {
+  position: relative;
+  width: 100%;
+  height: 15vh; /* altura del banner, ajustable */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.curso-banner .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* semitransparente para mejor legibilidad */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.curso-banner .overlay h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+}
+
+.carpeta-contenido {
+  background-color: #fefefe;  /* color claro tipo hoja */
+  border: 2px solid #ccc;     /* borde suave */
+  border-radius: 12px;        /* bordes redondeados */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* sombra sutil */
+  color: #222;                /* texto oscuro para legibilidad */
+  font-size: 1.1rem;
+  line-height: 1.2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  white-space: pre-wrap;      /* respeta saltos de línea */
+}
+
+/* Botones en formularios de eliminación */
+.botones-acciones {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.btn-eliminar,
+.btn-cancelar {
+  appearance: none;
+  padding: 12px 25px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* Botón eliminar (rojo) */
+.btn-eliminar {
+  background-color: #dc3545 !important;
+  color: white;
+  margin: 0px !important;
+}
+.btn-eliminar:hover {
+  background-color: #c82333 !important;
+  
+}
+
+/* Botón cancelar (gris) */
+.btn-cancelar {
+  background-color: #6c757d !important;
+  color: white;
+  font-weight: 700;
+}
+.btn-cancelar:hover {
+  background-color: #5a6268 !important;
+}
+
+
+.perfil-card {
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 12px;
+  background-color: #fff;
+  color: #222;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.perfil-header {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+}
+
+.perfil-avatar {
+  width: 15vw;         
+  height: 30vh;       
+  object-fit: fill;     
+  border-radius: 12px;
+  border: 2px solid #444;
+  display: block;
+}
+
+.perfil-avatar-placeholder {
+  width: 120px;
+  height: 120px;
+  background-color: #ccc;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.perfil-username {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.perfil-email {
+  margin: 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.perfil-info p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.perfil-info strong {
+  color: #333;
+}
+
+/* Contenedor general del formulario */
+.form-perfil-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fafafa;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+/* Contenedor para la imagen avatar en edición */
+.avatar-edit-container {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.avatar-edit-img {
+  max-width: 140px;
+  max-height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #292929;
+  box-shadow: 0 0 8px rgba(41, 41, 41, 0.6);
+  transition: transform 0.3s ease;
+}
+.avatar-edit-img:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Contenedor de los campos */
+.form-campos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Cada grupo de campo */
+.form-campo-grupo {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Etiquetas */
+.form-campo-label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #111;
+  letter-spacing: 0.3px;
+}
+
+/* Inputs (añadiendo estilo sin tocar clases viejas) */
+.form-campo-input {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1.5px solid #bbb;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+  color: #222;
+  background-color: #fff;
+  min-height: 42px;
+}
+
+/* Focus input */
+.form-campo-input:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 8px rgba(13, 110, 253, 0.5);
+  outline: none;
+}
+
+/* Help text */
+.form-campo-help {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Botones */
+.btn-guardar-perfil {
+  background-color: #292929;
+  color: white;
+  font-weight: 700;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 25px auto 0 auto;
+  box-shadow: 0 4px 15px rgba(73, 73, 73, 0.4);
+}
+.btn-guardar-perfil:hover {
+  background-color: #4c4d4d;
+  box-shadow: 0 6px 20px rgba(73, 73, 73, 0.6);
+}
+
+/* Link volver */
+.btn-volver-perfil {
+  display: block;
+  text-align: center;
+  color: #292929;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.btn-volver-perfil:hover {
+  color: #0d6efd;
+}
+
+/* PAGINA LISTADO CURSOS */
+.tamano_card_curso {
+  height: 60vh; 
+  max-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.tamano_card_detalle_curso{
+  height: 40vh; 
+  max-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;}
+
+.curso_btn{
+  max-width: 35%;
+}
+.curso_img{
+  height: 50%;
+}
+.texto_card_curso{
+  max-height: 50%;
+}
+.detalle_curso_btn{
+  width: 33%;
+  font-size: 1.9vh;
+}
+.div_botones_detalle_curso{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+ 
+}
+.div_botones_curso{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+.card-img-top {
+    height: 50%;
+    object-fit: cover;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Cantidad de líneas visibles */
+    line-clamp: 3; /*Cantidad de líneas visibles(todavía en adopción) */
+    -webkit-box-orient: vertical;
+}
+
+/* PARA QUITAR SUBRAYADOS AUTOMATICOS DE BOOTSTRAP */
+a.btn:hover,
+a.btn:focus,
+a.btn-primary:hover,
+a.btn-primary:focus,
+a.btn-warning:hover,
+a.btn-warning:focus,
+a.btn-danger:hover,
+a.btn-danger:focus,
+a.botones_negros:hover,
+a.botones_negros:focus {
+  text-decoration: none !important;
+}
+
+a.btn,
+a.btn-primary,
+a.btn-warning,
+a.btn-danger,
+a.botones_negros {
+  text-decoration: none !important;
+}
+.card-body a {
+  text-decoration: none !important;
+}
+
+.card-body a:hover {
+  text-decoration: none !important;
+}
+
+/* css del footer */
+.footer {
+  background-color: #1a1a1a;
+  color: #434343;
+  font-size: 0.95rem;
+  border-top: 1px solid #333;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+
+}
+.footer a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.footer_container{
+  padding: 10px;
+}
+.footer_p{
+  margin: 0;
+  padding: 5px;
+}

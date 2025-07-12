@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'core',
     'accounts',
     'ckeditor',
+    'whitenoise.runserver_nostatic',  # Agregalo antes de staticfiles
+    'django.contrib.staticfiles'
 
     ]
 
@@ -52,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -135,4 +138,4 @@ CKEDITOR_CONFIGS = {
     },
 }
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
