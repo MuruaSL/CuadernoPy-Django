@@ -1,1 +1,1 @@
-web: gunicorn cuadernopy.wsgi:application
+web: gunicorn config.wsgi:application
