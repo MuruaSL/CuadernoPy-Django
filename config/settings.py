@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "clave-insegura-para-dev")
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = os.environ.get("DEBUG", "False") == "True"
-ALLOWED_HOSTS = ['mis-cuadernos.onrender.com']
+ALLOWED_HOSTS = ['mis-cuadernos.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
