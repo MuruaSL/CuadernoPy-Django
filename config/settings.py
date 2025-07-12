@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'accounts',
     'ckeditor',
     'whitenoise.runserver_nostatic',  # Agregalo antes de staticfiles
-    'django.contrib.staticfiles'
+    
 
     ]
 
