@@ -797,3 +797,22 @@ a.botones_negros {
 .card-body a:hover {
   text-decoration: none !important;
 }
+
+/* css del footer */
+.footer {
+  background-color: #1a1a1a;
+  color: #434343;
+  font-size: 0.95rem;
+  
+  border-top: 1px solid #333;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.footer a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
