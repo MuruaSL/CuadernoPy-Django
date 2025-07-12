@@ -32,8 +32,10 @@
                         <p class="card-text card-text ">{{ curso.descripcion|striptags|truncatewords:20|safe }}</p>
                         <div class="div_botones_curso">
                             <a href="{% url 'CursoDetalle' curso.id %}" class="btn btn-primary curso_btn">Ver clases</a>
+                            {% if user.is_authenticated and user.is_superuser %}
                             <a href="{% url 'EditarCurso' curso.id %}" class="btn btn-warning  curso_btn">Editar Curso</a>
                             <a href="{% url 'EliminarCurso' curso.id %}" class="btn btn-danger curso_btn">Eliminar Curso</a>
+                            {% endif %}
                         </div>
                     </div>
 

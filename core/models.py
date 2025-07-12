@@ -1,7 +1,6 @@
 # Create your models here.
 from django.db import models
 from ckeditor.fields import RichTextField
-from django.contrib.auth.models import User
 
 class MensajeContacto(models.Model):
     nombre = models.CharField(max_length=100)

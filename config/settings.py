@@ -130,6 +130,6 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 CKEDITOR_CONFIGS = {
     'default': {
-        'language': 'es',  # O el idioma deseado
+        'language': 'es', 
     },
 }

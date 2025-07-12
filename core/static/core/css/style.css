@@ -803,11 +803,11 @@ a.botones_negros {
   background-color: #1a1a1a;
   color: #434343;
   font-size: 0.95rem;
-  
   border-top: 1px solid #333;
   position: relative;
   bottom: 0;
   width: 100%;
+
 }
 .footer a {
   color: #0d6efd;
@@ -815,4 +815,11 @@ a.botones_negros {
 }
 .footer a:hover {
   text-decoration: underline;
+}
+.footer_container{
+  padding: 10px;
+}
+.footer_p{
+  margin: 0;
+  padding: 5px;
 }

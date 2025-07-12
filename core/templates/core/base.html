@@ -43,7 +43,7 @@
               </li>
 
               <!-- Dropdown Administrativo -->
-              {% if user.is_authenticated %}
+              {% if user.is_authenticated and user.is_superuser %}
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle {% if activo_administrativo %}active{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Administrativo
@@ -106,9 +106,9 @@
     {% block cuerpo %}{% endblock cuerpo %}
     
 <footer class="footer mt-auto py-4">
-  <div class="container text-center">
-    <p class="mb-1">&copy; {{ year }} Sergio Murua - Cuaderno Py + Django</p>
-    <p class="small text-muted">Desarrollado con Django | <a href="https://github.com/MuruaSL/CuadernoPy-Django" target="_blank">Ver en GitHub</a></p>
+  <div class="container text-center footer_container">
+    <p class="footer_p">&copy; {{ year }} Sergio Murua - Cuaderno Py + Django</p>
+    <p class="small  footer_p">Desarrollado con Django | <a href="https://github.com/MuruaSL/CuadernoPy-Django" target="_blank">Ver en GitHub</a> | <a href="https://www.linkedin.com/in/sergio-leonardo-murua-4b8177335/" target="_blank">Linkedin</a></p>
   </div>
 </footer>
 

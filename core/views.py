@@ -4,6 +4,9 @@ from .forms import ContactoFormulario, ClaseForm, CursoForm, CategoriaForm  # us
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 def index(request):
     return render(request, "core/index.html")
@@ -33,26 +36,27 @@ def curso_detalle(request, curso_id):
     })
 
     #   Aplicacion de CBV - DetailView para detalles de clases 
+
 class ClaseDetailView(DetailView):
     model = Clase
     template_name = 'core/clase_detalle.html'
     context_object_name = 'clase'
     
-class ClaseCreateView(CreateView):
+class ClaseCreateView(LoginRequiredMixin,CreateView):
     model = Clase
     form_class = ClaseForm
     template_name = 'core/crear_clase.html'
     success_url = reverse_lazy('Cursos')
 
 
-class ClaseUpdateView(UpdateView):
+class ClaseUpdateView(LoginRequiredMixin,UpdateView):
     model = Clase
     form_class = ClaseForm
     template_name = 'core/editar_clase.html'  
     success_url = reverse_lazy('Cursos')
 
 
-class ClaseDeleteView(DeleteView):
+class ClaseDeleteView(LoginRequiredMixin,DeleteView):
     model = Clase
     template_name = 'core/eliminar_clase.html'
     success_url = reverse_lazy('Cursos')
@@ -69,29 +73,30 @@ def sobremi(request):
 
 
 #   Aplicacion de CBV - DetailView para detalles de clases 
-class ClaseCreateView(CreateView):
+class ClaseCreateView(LoginRequiredMixin,CreateView):
     model = Clase
     form_class = ClaseForm
     template_name = 'core/crear_clase.html'
     success_url = reverse_lazy('Cursos')
 
-class CursoCreateView(CreateView):
+class CursoCreateView(LoginRequiredMixin,CreateView):
     model = Curso
     form_class = CursoForm
     template_name = 'core/crear_curso.html'
     success_url = reverse_lazy('Cursos')
 
-class CursoUpdateView(UpdateView):
+class CursoUpdateView(LoginRequiredMixin,UpdateView):
     model = Curso
     form_class = CursoForm
     template_name = 'core/editar_curso.html'
     success_url = reverse_lazy('Cursos')
 
-class CursoDeleteView(DeleteView):
+class CursoDeleteView(LoginRequiredMixin,DeleteView):
     model = Curso
     template_name = 'core/eliminar_curso.html'
     success_url = reverse_lazy('Cursos')
     
+@login_required
 def crear_categoria(request):
     if request.method == 'POST':
         form = CategoriaForm(request.POST)
