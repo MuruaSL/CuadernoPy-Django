@@ -1,5 +1,6 @@
 # Create your models here.
 from django.db import models
+from cloudinary.models import CloudinaryField
 from ckeditor.fields import RichTextField
 
 class MensajeContacto(models.Model):
@@ -20,7 +21,7 @@ class Categoria(models.Model):
 class Curso(models.Model):
     titulo = models.CharField(max_length=200)
     descripcion = models.TextField()
-    imagen = models.ImageField(upload_to='imagenes_cursos/', null=True, blank=True)
+    imagen = CloudinaryField('imagen', null=True, blank=True)  
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='cursos')
 
     def __str__(self):
@@ -30,11 +31,9 @@ class Clase(models.Model):
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE, related_name='clases')
     titulo = models.CharField(max_length=200)
     descripcion = models.TextField()
-    imagen = models.ImageField(upload_to="imagenes_clases/", null=True, blank=True)
+    imagen = CloudinaryField('imagen', null=True, blank=True)
     texto_completo = RichTextField()
 
     def __str__(self):
         return self.titulo
-
-imagen = models.ImageField(upload_to='cursos/')
 

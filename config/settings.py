@@ -23,8 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "clave-insegura-para-dev")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG =  "True"
+DEBUG =  True
 ALLOWED_HOSTS = ['mis-cuadernos.onrender.com', '127.0.0.1', 'localhost']
 
 
@@ -43,7 +42,12 @@ INSTALLED_APPS = [
     'core',
     'accounts',
     'ckeditor',
+    
+    'cloudinary_storage',
+    'cloudinary',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -121,14 +125,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'core' / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -138,3 +140,13 @@ CKEDITOR_CONFIGS = {
         'language': 'es',
     },
 }
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CLOUDINARY = {
+    'cloud_name': os.environ.get('CLOUDINARY_CLOUD_NAME', 'devtn7wpk'),
+    'api_key': os.environ.get('CLOUDINARY_API_KEY', '572797394787294'),
+    'api_secret': os.environ.get('CLOUDINARY_API_SECRET', 'TDh0YWwuhO4UmCv4G79tXQnIsdo'),
+}
+
+print("DEFAULT_FILE_STORAGE =", DEFAULT_FILE_STORAGE)
